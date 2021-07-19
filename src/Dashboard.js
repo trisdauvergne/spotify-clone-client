@@ -12,6 +12,12 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState('');
   const accessToken = useAuth(code);
   const [searchResults, setSearchResults] = useState([]);
+  const [playingTrack, setPlayingTrack] = useState('');
+
+  const chooseTrack = (track) => {
+    setPlayingTrack(track);
+    setSearch('');
+  }
   console.log('searchresults from dashboard', searchResults)
 
   useEffect(() => {
@@ -60,10 +66,10 @@ export default function Dashboard({ code }) {
       <div>
         <h2>Songs</h2>
         {searchResults.map(track => (
-          <TrackSearchResult track={track} key={track.uri} />
+          <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack} />
         ))}
       </div>
-      <div><Player accessToken={accessToken}/></div>
+      <div><Player accessToken={accessToken} trackUri={playingTrack?.uri}/></div>
     </section>
   )
 };
