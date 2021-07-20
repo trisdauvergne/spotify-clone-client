@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAuth from './useAuth.js';
 import SpotifyWebApi from 'spotify-web-api-node';
 import TrackResults from './TrackResults.js';
+import Player from './Player.js';
 // import axios from 'axios';
 
 const spotifyApi = new SpotifyWebApi({
@@ -12,7 +13,13 @@ const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [playingTrack, setPlayingTrack] = useState('');
   console.log('searchResults', searchResults);
+
+  const chooseTrack = (track) => {
+    setPlayingTrack(track);
+    setSearch('');
+  }
 
   // setting the access token
   useEffect(() => {
@@ -67,10 +74,12 @@ const Dashboard = ({ code }) => {
       <div>
         <h3>Songs will go here</h3>
         {searchResults.map(track => (
-          <TrackResults track={track} key={track.uri} />
+          <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
       </div>
-      <div>Bottom</div>
+      <div>
+        <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
+      </div>
     </section>
   )
 }
