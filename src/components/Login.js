@@ -10,17 +10,17 @@ const scope = [
   'user-read-playback-state',
   'user-modify-playback-state',
 ].join('%20');
-console.log(scope);
 
 const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${REDIRECT_URI}&scope=${scope}`;
 
-console.log(AUTH_URL);
+// console.log('AUTH_URL in login.js =', AUTH_URL);
 
 const Login = () => {
   return (
-    <div>
-      <h1>Login</h1>
-    </div>
+    <section>
+      <h1>Login Section</h1>
+      <a href={AUTH_URL}>Login with Spotify</a>
+    </section>
   )
 }
 
