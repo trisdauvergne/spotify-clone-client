@@ -3,7 +3,7 @@ import useAuth from './useAuth.js';
 import SpotifyWebApi from 'spotify-web-api-node';
 import TrackResults from './TrackResults.js';
 import Player from './Player.js';
-// import axios from 'axios';
+import axios from 'axios';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.REACT_APP_CLIENT_ID,
@@ -14,11 +14,12 @@ const Dashboard = ({ code }) => {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState('');
-  console.log('searchResults', searchResults);
+  const [lyrics, setLyrics] = useState('');
 
   const chooseTrack = (track) => {
     setPlayingTrack(track);
     setSearch('');
+    setLyrics('');
   }
 
   // setting the access token
@@ -57,10 +58,26 @@ const Dashboard = ({ code }) => {
     return () => cancel = true;
   }, [search, accessToken]);
 
+  // to get the lyrics
+  useEffect(() => {
+    if (!playingTrack) return;
+    axios.get('http://localhost:3001/lyrics', {
+      params: {
+        track: playingTrack.title,
+        artist: playingTrack.artist,
+      }
+    })
+    .then(res => {
+      setLyrics(res.data.lyrics)
+    })
+    .catch(err => {
+      console.log(err.message);
+    })
+  }, [playingTrack])
+
   return (
     <section>
       <h3>Dashboard</h3>
-      {/* <p>Code passed from App.js = {code}</p> */}
       <div>
         <h3>Container for form</h3>
         <form>
@@ -76,6 +93,12 @@ const Dashboard = ({ code }) => {
         {searchResults.map(track => (
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
+        {searchResults.length === 0 && (
+          <div>
+            <h1>Lyrics</h1>
+            {lyrics}
+          </div>
+        )}
       </div>
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
