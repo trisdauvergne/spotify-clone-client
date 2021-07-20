@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import useAuth from './useAuth.js';
 
-const Dashboard = () => {
+const Dashboard = ({ code }) => {
+  const accessToken = useAuth(code);
+  
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h3>Dashboard</h3>
+      <p>Code passed from App.js = {code}</p>
     </div>
   )
 }
