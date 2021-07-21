@@ -76,6 +76,11 @@ const Dashboard = ({ code }) => {
     })
   }, [playingTrack])
 
+  const clearResults = () => {
+    setSearchResults([]);
+    setSearch('');
+  }
+
   return (
     <section className="section dashboard">
       <h1 className="dashboard__title">The Spotify Clone</h1>
@@ -88,8 +93,9 @@ const Dashboard = ({ code }) => {
           value={search}
           onChange={e => setSearch(e.target.value)}/>
         </form>
+        {searchResults.length !== 0 && <button onClick={clearResults}>Clear results</button>}
       </div>
-      <div>
+      <div className="dashboard__songs-div">
         {/* <h3>Songs will go here</h3> */}
         {searchResults.map(track => (
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
@@ -97,7 +103,6 @@ const Dashboard = ({ code }) => {
         {lyrics !== '' && (
           <>
             <div>
-              <h1>Lyrics</h1>
               {lyrics}
             </div>
             <div>

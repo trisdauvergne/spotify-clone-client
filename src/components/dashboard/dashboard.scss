@@ -24,7 +24,8 @@
 
 .dashboard__input {
   font-family: $body-font;
-  min-width: 300px;
+  font-size: 1rem;
+  min-width: 320px;
   text-align: center;
   margin: auto;
   border: $border;
@@ -36,4 +37,12 @@
 .dashboard__input:focus {
   outline: none;
   border-color: $orange;
+}
+
+.dashboard__songs-div {
+  width: 50vw;
+  display: flex;
+  margin: auto;
+  margin-top: $margin-top;
+  overflow-x: scroll;
 }
