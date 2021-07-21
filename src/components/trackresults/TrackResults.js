@@ -1,8 +1,6 @@
 import React from 'react'
 
 const TrackResults = ({ track, chooseTrack }) => {
-  console.log(track);
-
   const handlePlay = () => {
     chooseTrack(track);
   };

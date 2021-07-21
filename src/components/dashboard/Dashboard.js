@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import useAuth from './useAuth.js';
+import useAuth from '../useauth/useAuth.js';
 import SpotifyWebApi from 'spotify-web-api-node';
-import TrackResults from './TrackResults.js';
-import Player from './Player.js';
+import TrackResults from '../trackresults/TrackResults.js';
+import Player from '../player/Player.js';
 import axios from 'axios';
 
 const spotifyApi = new SpotifyWebApi({
@@ -93,16 +93,21 @@ const Dashboard = ({ code }) => {
         {searchResults.map(track => (
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
-        {searchResults.length === 0 && (
-          <div>
-            <h1>Lyrics</h1>
-            {lyrics}
-          </div>
+        {lyrics !== '' && (
+          <>
+            <div>
+              <h1>Lyrics</h1>
+              {lyrics}
+            </div>
+            <div>
+              <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
+            </div>
+          </>
         )}
       </div>
-      <div>
+      {/* <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
-      </div>
+      </div> */}
     </section>
   )
 }

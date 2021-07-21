@@ -1,5 +1,6 @@
-import Login from './components/Login.js';
-import Dashboard from './components/Dashboard.js';
+import Login from './components/login/Login.js';
+import Dashboard from './components/dashboard/Dashboard.js';
+// import './App.scss';
 
 const code = new URLSearchParams(window.location.search).get('code');
 console.log('CODE in App.js =', code);
