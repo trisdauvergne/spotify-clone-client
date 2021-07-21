@@ -1,0 +1,39 @@
+@import '../../master';
+
+.dashboard {
+  margin: auto;
+  width: 100vw;
+}
+
+.dashboard__title {
+  font-family: $main-font;
+  font-weight: $main-font-weight;
+  color: $navy;
+  text-transform: uppercase;
+  font-size: 7rem;
+  margin: auto;
+  position: sticky;
+  top: 0;
+  z-index: -5;
+}
+
+.dashboard__form {
+  display: flex;
+  margin-top: $margin-top;
+}
+
+.dashboard__input {
+  font-family: $body-font;
+  min-width: 300px;
+  text-align: center;
+  margin: auto;
+  border: $border;
+  border-radius: $border-radius;
+  padding: $inside-padding;
+  transition: $transition;
+}
+
+.dashboard__input:focus {
+  outline: none;
+  border-color: $orange;
+}

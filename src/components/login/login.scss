@@ -6,15 +6,15 @@
 }
 
 .login-btn {
-  font-family: 'Barlow', sans-serif;
-  font-weight: 600;
+  font-family: $main-font;
+  font-weight: $main-font-weight;
   font-size: 3rem;
   text-decoration: none;
   color: $navy;
   opacity: 0.7;
   transition: $transition;
-  border-radius: 25px;
-  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  padding: $inside-padding;
 }
 
 .login-btn:hover {

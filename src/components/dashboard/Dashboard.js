@@ -4,6 +4,7 @@ import SpotifyWebApi from 'spotify-web-api-node';
 import TrackResults from '../trackresults/TrackResults.js';
 import Player from '../player/Player.js';
 import axios from 'axios';
+import './dashboard.scss';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.REACT_APP_CLIENT_ID,
@@ -76,12 +77,12 @@ const Dashboard = ({ code }) => {
   }, [playingTrack])
 
   return (
-    <section>
-      <h3 className="title">Dashboard</h3>
-      <div>
-        <h3>Container for form</h3>
-        <form>
+    <section className="section dashboard">
+      <h1 className="dashboard__title">The Spotify Clone</h1>
+      <div className="dashboard__form-div">
+        <form className="dashboard__form">
           <input
+          className="dashboard__input"
           type="search"
           placeholder="Search for songs/artists"
           value={search}
@@ -89,7 +90,7 @@ const Dashboard = ({ code }) => {
         </form>
       </div>
       <div>
-        <h3>Songs will go here</h3>
+        {/* <h3>Songs will go here</h3> */}
         {searchResults.map(track => (
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
