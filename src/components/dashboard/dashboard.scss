@@ -17,8 +17,13 @@
   z-index: -5;
 }
 
-.dashboard__form {
+.dashboard__form-div {
   display: flex;
+  margin: auto;
+  flex-direction: column;
+}
+
+.dashboard__form {
   margin-top: $margin-top;
 }
 
@@ -32,11 +37,26 @@
   border-radius: $border-radius;
   padding: $inside-padding;
   transition: $transition;
+  background-color: $white;
 }
 
 .dashboard__input:focus {
   outline: none;
   border-color: $orange;
+}
+
+.dashboard__form-btn {
+  font-family: $body-font;
+  font-weight: $body-font-weight;
+  margin-top: $margin-top;
+  background-color: $white;
+  font-size: 1rem;
+}
+
+.dashboard__form-btn:hover {
+  background-color: $red;
+  border-color: $white;
+  font-weight: 700;
 }
 
 .dashboard__songs-div {

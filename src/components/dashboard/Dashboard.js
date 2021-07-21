@@ -93,7 +93,9 @@ const Dashboard = ({ code }) => {
           value={search}
           onChange={e => setSearch(e.target.value)}/>
         </form>
-        {searchResults.length !== 0 && <button onClick={clearResults}>Clear results</button>}
+        {searchResults.length !== 0 &&
+          <button className="btn dashboard__form-btn" onClick={clearResults}>Clear results</button>
+        }
       </div>
       <div className="dashboard__songs-div">
         {/* <h3>Songs will go here</h3> */}
