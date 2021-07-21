@@ -1,4 +1,5 @@
 import React from 'react';
+import './login.scss';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const REDIRECT_URI = process.env.REACT_APP_REDIRECT;
@@ -15,9 +16,11 @@ const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&
 
 const Login = () => {
   return (
-    <section>
-      <h3>Login Section</h3>
-      <a href={AUTH_URL}>Login with Spotify</a>
+    <section className="section login">
+      {/* <h3>Login Section</h3> */}
+      <div className="login-container">
+        <a className="btn login-btn" href={AUTH_URL}>LOGIN</a>
+      </div>
     </section>
   )
 }

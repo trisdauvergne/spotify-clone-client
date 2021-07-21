@@ -77,7 +77,7 @@ const Dashboard = ({ code }) => {
 
   return (
     <section>
-      <h3>Dashboard</h3>
+      <h3 className="title">Dashboard</h3>
       <div>
         <h3>Container for form</h3>
         <form>

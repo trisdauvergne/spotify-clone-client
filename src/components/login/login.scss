@@ -1,0 +1,24 @@
+@import '../../master';
+
+.login-container {
+  margin: auto;
+  padding: 45vh 0;
+}
+
+.login-btn {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  text-decoration: none;
+  color: $navy;
+  opacity: 0.7;
+  transition: $transition;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+}
+
+.login-btn:hover {
+  background-color: $teal;
+  opacity: 1;
+  color: $white;
+}
