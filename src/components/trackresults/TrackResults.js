@@ -11,8 +11,8 @@ const TrackResults = ({ track, chooseTrack }) => {
   return (
     <div className="track" onClick={handlePlay}>
       <img className="track__img" src={track.albumUrl} alt="" />
-      <h4>{track.title}</h4>
-      <p>{track.artist}</p>
+      <h4 className="track__title">{track.title}</h4>
+      <p className="track__artist">{track.artist}</p>
     </div>
   )
 }

@@ -60,10 +60,10 @@
 }
 
 .dashboard__songs-div {
-  width: 50vw;
+  width: 60vw;
   display: flex;
   margin: auto;
-  margin-top: $margin-top;
+  // margin-top: $margin-top;
   overflow-x: scroll;
 }
 
@@ -72,6 +72,7 @@
   margin-top: $margin-top;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .dashboard__lyric-txt {
@@ -83,11 +84,12 @@
   margin-top: $margin-top;
   text-align: center;
   white-space: pre;
+  margin-bottom: 5rem;
 }
 
 .dashboard__player {
   margin-top: $margin-top;
-  position: sticky;
-  bottom: 0vh;
+  position: fixed;
+  bottom: 0;
   width: 50vw;
 }

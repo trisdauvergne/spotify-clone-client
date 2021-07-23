@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAuth from '../useauth/useAuth.js';
 import SpotifyWebApi from 'spotify-web-api-node';
 import TrackResults from '../trackresults/TrackResults.js';
+import Lyrics from '../lyrics/Lyrics.js';
 import Player from '../player/Player.js';
 import axios from 'axios';
 import './dashboard.scss';
@@ -99,24 +100,16 @@ const Dashboard = ({ code }) => {
         }
       </div>
       <div className="dashboard__songs-div">
-        {/* <h3>Songs will go here</h3> */}
         {searchResults.map(track => (
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
         {lyrics !== '' && (
           <div className="dashboard__lyricsandplayer">
-            <div className="dashboard__lyrics">
-              <p className="dashboard__lyric-txt">{lyrics}</p>
-            </div>
-            <div className="dashboard__player">
-              <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
-            </div>
+            <Lyrics title={playingTrack.title} lyrics={lyrics}/>
+            <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
           </div>
         )}
       </div>
-      {/* <div>
-        <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
-      </div> */}
     </section>
   )
 }

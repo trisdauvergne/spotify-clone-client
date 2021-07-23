@@ -1,0 +1,17 @@
+@import '../../master';
+
+.lyrics {
+  text-align: center;
+}
+
+.lyrics__title {
+  font-family: $main-font;
+  text-transform: uppercase;
+}
+
+.lyrics__txt {
+  font-family: $body-font;
+  line-height: 2;
+  white-space: pre;
+  margin-bottom: 5rem;
+}

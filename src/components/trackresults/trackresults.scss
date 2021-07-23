@@ -8,3 +8,12 @@
 .track__img {
   width: 300px;
 }
+
+.track__title {
+  font-family: $main-font;
+  text-transform: uppercase;
+}
+
+.track__artist {
+  font-family: $body-font;
+}
