@@ -62,7 +62,28 @@
 .dashboard__songs-div {
   width: 50vw;
   display: flex;
+  // flex-direction: column;
   margin: auto;
   margin-top: $margin-top;
   overflow-x: scroll;
+}
+
+.dashboard__lyricsandplayer {
+  margin: auto;
+  margin-top: $margin-top;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__lyrics {
+  margin-top: $margin-top;
+  text-align: center;
+  white-space: pre;
+}
+
+.dashboard__player {
+  margin-top: $margin-top;
+  position: sticky;
+  bottom: 0vh;
+  width: 50vw;
 }

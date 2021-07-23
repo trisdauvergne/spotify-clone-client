@@ -83,7 +83,7 @@ const Dashboard = ({ code }) => {
 
   return (
     <section className="section dashboard">
-      <h1 className="dashboard__title">The Spotify Clone</h1>
+      <h1 className="dashboard__title">Attack of the Clone</h1>
       <div className="dashboard__form-div">
         <form className="dashboard__form">
           <input
@@ -103,14 +103,15 @@ const Dashboard = ({ code }) => {
           <TrackResults track={track} key={track.uri} chooseTrack={chooseTrack}/>
         ))}
         {lyrics !== '' && (
-          <>
-            <div>
+          <div className="dashboard__lyricsandplayer">
+            <button>Back</button>
+            <div className="dashboard__lyrics">
               {lyrics}
             </div>
-            <div>
+            <div className="dashboard__player">
               <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>
             </div>
-          </>
+          </div>
         )}
       </div>
       {/* <div>
