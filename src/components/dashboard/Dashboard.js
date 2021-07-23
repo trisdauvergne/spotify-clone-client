@@ -40,18 +40,19 @@ const Dashboard = ({ code }) => {
     .then(res => {
       if (cancel) return;
       setSearchResults(res.body.tracks.items.map(track => {
-        const smallestImage = track.album.images.reduce((smallest, currentImage) => {
-          if (currentImage.height < smallest.height) {
-            return currentImage;
-          } else {
-            return smallest;
-          }
-        }, track.album.images[0])
+        // console.log('track', track);
+        // const smallestImage = track.album.images.reduce((smallest, currentImage) => {
+        //   if (currentImage.height < smallest.height) {
+        //     return currentImage;
+        //   } else {
+        //     return smallest;
+        //   }
+        // }, track.album.images[0])
         return {
           artist: track.artists[0].name,
           title: track.name,
           uri: track.uri,
-          albumUrl: smallestImage.url,
+          albumUrl: track.album.images[1].url,
         }
       }));
     })
@@ -104,9 +105,8 @@ const Dashboard = ({ code }) => {
         ))}
         {lyrics !== '' && (
           <div className="dashboard__lyricsandplayer">
-            <button>Back</button>
             <div className="dashboard__lyrics">
-              {lyrics}
+              <p className="dashboard__lyric-txt">{lyrics}</p>
             </div>
             <div className="dashboard__player">
               <Player accessToken={accessToken} trackUri={playingTrack?.uri}/>

@@ -62,7 +62,6 @@
 .dashboard__songs-div {
   width: 50vw;
   display: flex;
-  // flex-direction: column;
   margin: auto;
   margin-top: $margin-top;
   overflow-x: scroll;
@@ -73,6 +72,11 @@
   margin-top: $margin-top;
   display: flex;
   flex-direction: column;
+}
+
+.dashboard__lyric-txt {
+  font-family: $body-font;
+  line-height: 2;
 }
 
 .dashboard__lyrics {
