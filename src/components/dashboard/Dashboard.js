@@ -11,6 +11,10 @@ const spotifyApi = new SpotifyWebApi({
   clientId: process.env.REACT_APP_CLIENT_ID,
 })
 
+const fetchlink = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION; 
+
+console.log('Dashboard process.env.NODE_ENV =', process.env.NODE_ENV);
+
 const Dashboard = ({ code }) => {
   const accessToken = useAuth(code);
   const [search, setSearch] = useState('');
@@ -56,7 +60,7 @@ const Dashboard = ({ code }) => {
   // to get the lyrics
   useEffect(() => {
     if (!playingTrack) return;
-    axios.get('http://localhost:3001/lyrics', {
+    axios.get(`${fetchlink}/lyrics`, {
       params: {
         track: playingTrack.title,
         artist: playingTrack.artist,
