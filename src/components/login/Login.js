@@ -3,7 +3,9 @@ import './login.scss';
 
 const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 // const REDIRECT_URI = process.env.REACT_APP_REDIRECT;
-const REDIRECT_URI = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_REDIRECT : process.env.REACT_APP_NETLIFY; 
+const REDIRECT_URI = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_REDIRECT : process.env.REACT_APP_NETLIFY;
+
+console.log('Login redirect_uri', REDIRECT_URI);
 
 const scope = [
   'streaming',
