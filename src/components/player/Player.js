@@ -10,16 +10,23 @@ const Player = ({ accessToken, trackUri }) => {
 
   if (!accessToken) return null;
 
+  console.log(trackUri);
+
   return (
     <SpotifyPlayer
     token={accessToken}
     showSaveIcon
-    callback={state => {
-      if (!state.isPlaying) {
-        setPlay(false);
-      }
-    }}
+    // callback={state => {
+    //   if (!state.isPlaying) {
+    //     setPlay(false);
+    //   }
+    // }} // removed as it wasn't autoplaying
     play={play}
+    styles={{
+      sliderColor: '#ff9f1c',
+      sliderHandleColor: '#011627',
+      color: '#011627'
+    }}
     uris={trackUri ? [trackUri] : []}
     />
   )

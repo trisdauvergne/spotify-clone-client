@@ -41,14 +41,6 @@ const Dashboard = ({ code }) => {
     .then(res => {
       if (cancel) return;
       setSearchResults(res.body.tracks.items.map(track => {
-        // console.log('track', track);
-        // const smallestImage = track.album.images.reduce((smallest, currentImage) => {
-        //   if (currentImage.height < smallest.height) {
-        //     return currentImage;
-        //   } else {
-        //     return smallest;
-        //   }
-        // }, track.album.images[0])
         return {
           artist: track.artists[0].name,
           title: track.name,
