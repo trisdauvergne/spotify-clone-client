@@ -5,10 +5,6 @@ const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 // const REDIRECT_URI = process.env.REACT_APP_REDIRECT;
 const REDIRECT_URI = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_REDIRECT : process.env.REACT_APP_NETLIFY;
 
-// console.log('Login redirect_uri', REDIRECT_URI);
-
-// console.log('Login process.env.NODE_ENV =', process.env.NODE_ENV);
-
 const scope = [
   'streaming',
   'user-read-email',
@@ -23,7 +19,6 @@ const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&
 const Login = () => {
   return (
     <section className="section login">
-      {/* <h3>Login Section</h3> */}
       <div className="login-container">
         <a className="btn login-btn" href={AUTH_URL}>LOGIN</a>
       </div>
