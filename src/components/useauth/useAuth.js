@@ -6,9 +6,11 @@ const useAuth = (code) => {
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
+  const fetchlink = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEVELOPMENT : process.env.REACT_APP_PRODUCTION; 
+
   // Hook to get the tokens from Spotify
   useEffect(() => {
-    axios.post('http://localhost:3001/login', {
+    axios.post(`${fetchlink}/login`, {
       code,
     })
     .then(res => {
@@ -28,7 +30,7 @@ const useAuth = (code) => {
     if (!refreshToken | !expiresIn) return;
 
     const interval = setInterval(() => {
-      axios.post('http://localhost:3001/refresh', {
+      axios.post(`${fetchlink}/refresh`, {
         refreshToken,
       })
       .then(res => {
